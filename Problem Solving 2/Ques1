@@ -1,0 +1,97 @@
+//Author: Tashvi Gooroochurn
+//Date:19/11/16
+//Ques1
+// You have to design and implement a Java console or GUI based
+//software program to calculate and print the annual net pay for a foreign resident in Australia for the
+//tax purposes. 
+
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+public class Ques1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	//declare variables
+		double TaxPayable;
+		double TaxPayable2;
+		double TaxPayable3;
+		double AnnualSalary;
+		double NetPay2;
+		double NetPay3;
+        double TemporaryBRL;
+        double NetPay;
+        double EmployerSC;
+        String outputString=" ";
+		
+		
+        //Prompts the user to input annual salary in a dialogue box
+        String  temp  = JOptionPane.showInputDialog ("Enter annual salary");  
+        AnnualSalary = Integer.parseInt(temp);
+        
+		
+		//condition: if the annual salary entered is less or equal to 87000
+			if(AnnualSalary <=87000)
+		{
+		TaxPayable = 0.325 * AnnualSalary;
+		NetPay= AnnualSalary-TaxPayable;
+		EmployerSC= (9.5/100) * AnnualSalary;
+	
+		//output for annual salary being less or equal to 87000
+		outputString= "Annual Salary: $" + (AnnualSalary) + "\n" + "Tax Payable: $" +(TaxPayable) + "\n" + 
+		           "Net Pay: $" + (NetPay)+ "\n" + "Employer Superannuation Contribution: $" 
+				+(EmployerSC);
+				  JOptionPane.showMessageDialog(null, outputString,             
+						  " Tax & Superannuation Calculator",            
+						  JOptionPane.INFORMATION_MESSAGE);              
+				  System.exit(0); 		
+		
+
+	}
+		
+			//condition: if the annual salary entered is more or equal to 87001	
+		else if(AnnualSalary>=87001 || AnnualSalary<=180000)
+		{
+			TaxPayable2= 28275 + (0.37* AnnualSalary);
+			NetPay2= AnnualSalary-TaxPayable2;
+			EmployerSC= (9.5/100) * AnnualSalary;
+			
+			//output for annual salary being more or equal to 87001
+			outputString= "Annual Salary: $" + (AnnualSalary) + "\n" + "Tax Payable: $" +(TaxPayable2) + "\n" + 
+			           "Net Pay: $" + (NetPay2)+ "\n" + "Employer Superannuation Contribution: $" 
+					+(EmployerSC);
+					  JOptionPane.showMessageDialog(null, outputString,             
+							  " Tax & Superannuation Calculator",            
+							  JOptionPane.INFORMATION_MESSAGE);              
+					  System.exit(0); 		
+			
+
+		}
+			//condition: if the annual salary entered is more than 180000
+		else
+			
+		{
+			
+			TaxPayable3= 62685 + (0.45*AnnualSalary);
+			TemporaryBRL= 0.02 * AnnualSalary;
+			NetPay3= AnnualSalary-(TaxPayable3 + TemporaryBRL);
+			EmployerSC= (9.5/100) * AnnualSalary;
+			
+		
+			//output for annual salary being more than 180000
+		outputString= "Annual Salary: $" + (AnnualSalary) + "\n" + "Tax Payable: $" +(TaxPayable3) + "\n" + 
+		          "Temporary Budget Repair Levy: $" + (TemporaryBRL) + "\n" + "Net Pay: $" + (NetPay3) + "\n" + "Employer Superannuation Contribution: $" 
+				+(EmployerSC);
+				  JOptionPane.showMessageDialog(null, outputString,             
+						  " Tax & Superannuation Calculator",            
+						  JOptionPane.INFORMATION_MESSAGE);              
+				  System.exit(0); 	
+		
+		
+		
+}
+}
+}
+
