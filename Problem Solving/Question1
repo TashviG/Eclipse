@@ -1,0 +1,47 @@
+//Question 1
+//You are given two sorted arrays, A and B, and A has a large enough buffer at the end to hold B.
+//Write a Java method to merge B into A in sorted order.
+
+package u3165466A1;
+import java.util.*;
+import java.util.Arrays;
+public class Question1  {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int [] a = {1,3,5,0,0,0}; //DECLARE AN ARRAY A WITH ELEMENTS
+		int [] b = {2,5,6}; //DECLARE ARRAY B
+		
+		mergeSort(a,b,3,3);
+		
+		System.out.println(" Sorted Array: " + Arrays.toString(a));
+		
+	}
+
+	public static void mergeSort(int[]a, int[]b, int aLength, int bLength) {
+		// TODO Auto-generated method stub
+		
+		int aIndex = aLength-1;
+		int bIndex = bLength-1;
+		int resultIndex = aLength + bLength -1;
+		
+		while (aIndex >= 0 && bIndex >=0) {
+			if(a[aIndex] > b[bIndex]) {
+				a[resultIndex]= a[aIndex];
+				aIndex--;
+			}
+			else {
+				a[resultIndex] =b[bIndex];
+				bIndex--;
+			}
+			resultIndex--;
+		}
+		while (bIndex >=0) {
+			a[resultIndex] = b[bIndex];
+			bIndex--;
+			resultIndex--;
+		}
+	}
+
+}
